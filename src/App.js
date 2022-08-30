@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <NavBar/>
-        <ItemListContainer/>
+        <ItemListContainer titulo="CATEGORIAS"/>
       </header>
     </div>
   );
