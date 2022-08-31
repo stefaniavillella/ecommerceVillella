@@ -1,6 +1,6 @@
 import './styles.css'
 
-const ItemListContainer = (titulo) => {
+const ItemListContainer = ({titulo}) => {
     return (
 <div className="container-fluid col-md-4 categoria">
    <div className="row">

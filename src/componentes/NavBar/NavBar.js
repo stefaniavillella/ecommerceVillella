@@ -1,6 +1,6 @@
 import './styles.css'
-import './CartWidget'
-import CartWidget from './CartWidget';
+import '../CartWidget/CartWidget'
+import CartWidget from '../CartWidget/CartWidget';
 
 
 const NavBar = () => {
@@ -11,16 +11,16 @@ const NavBar = () => {
         <div className="ulcontenedor" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
             <li className="nav-item">
-              <a className="nav-link header__navItem" aria-current="page" href="../index.html">Inicio</a>
+              <p className="nav-link header__navItem" aria-current="page" href="../index.html">Inicio</p>
             </li>
             <li className="nav-item">
-              <a className="nav-link header__active header__navItem" href="./productos">Productos</a>
+              <p className="nav-link header__active header__navItem" href="./productos">Productos</p>
             </li>
             <li className="nav-item">
-              <a className="nav-link header__navItem" href="./comoComprar.html">Cómo comprar</a>
+              <p className="nav-link header__navItem" href="./comoComprar.html">Cómo comprar</p>
             </li>
             <li className="nav-item">
-              <a className="nav-link header__navItem" href="./contacto.html">Contacto</a>
+              <p className="nav-link header__navItem" href="./contacto.html">Contacto</p>
             </li>
           </ul>
 
