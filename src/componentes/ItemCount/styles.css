@@ -1,0 +1,45 @@
+.contador{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.botones{
+    height: 187px;
+    width: 285px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(253, 218, 218);
+}
+
+.botonContador {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(-45deg, #f57272, #f4a074, #2973b4, #104d82);
+    background-size: 800% 400%;
+    padding: 8px;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    transition: all .5s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both; }
+  .botonContador:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05); }
+  .botonContador:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8); }
