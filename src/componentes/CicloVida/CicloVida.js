@@ -8,7 +8,7 @@ const CicloVida = ({numero}) => {
 
     useEffect(() => {
         return () => {
-            <h2>{numero}</h2>
+            
         };
     })
 

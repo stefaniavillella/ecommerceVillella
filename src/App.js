@@ -2,7 +2,7 @@
 import './App.css';
 import NavBar from './componentes/NavBar/NavBar';
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
-import Contador from './componentes/ItemCount/ItemCount';
+
 
 function App() {
   return (
@@ -10,8 +10,7 @@ function App() {
       <header className="App-header">
         <NavBar/>
       </header>
-        <ItemListContainer titulo="CATEGORIAS"/>
-      <Contador/>
+        <ItemListContainer titulo="PRODUCTOS"/>
     </div>
   );
 }

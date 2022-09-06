@@ -82,3 +82,7 @@ li{
   background-color: #f4a074;
   margin-top: 10px;
 }
+
+.productoss{
+  display: flex;
+}
