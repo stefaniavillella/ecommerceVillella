@@ -1,4 +1,4 @@
-import data from '../Data/MockData';
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
@@ -8,28 +8,27 @@ const ItemDetailContainer = () => {
     const {productId} = useParams();
     const [items, setItems] = useState([]);
   
-    const getItem = new Promise ((resolve, rejet) => {
-        setTimeout(() => {
-            const detalle = data.find(item=>item.id === parseInt(productId));
-          resolve(detalle)
-        }, 2000);
-    })
+    const getItem = (id) => {
+      return new Promise((resolve, rejet) => {
+        const productoDetalle = items.find(items=>items.id === parseInt(id));
+        resolve(productoDetalle)
+        });
+    }
         useEffect(() => {
-          getItem.then((result) => {
-            setItems(result);
-          })
-        },);
+          const getProducto = async()=>{
+            const producto = await getItem(productId);
+            setItems(producto)
+          }
+          getProducto();
+        },)
   
   
       return (
-  <div className="container-fluid col-md-4 categoria">
+  <div className="item-detail-container">
      <div className="row">
-         <div className="col-md-8">
-          <div className="list-group productoss" id="list-tab" role="tablist">
+         <p style={{width:"400px", color: "white"}}>Detalle de Producto</p>
             <ItemDetail items={items}/>
-          </div>
-        </div>
-     </div>
+           </div>
   </div>
       )
   };
