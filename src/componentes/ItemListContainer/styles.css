@@ -79,10 +79,17 @@ li{
 
 .categoria{
   list-style-type: none;
-  background-color: #f4a074;
+  background-color: #e9bbd2;
   margin-top: 10px;
 }
 
 .productoss{
   display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
 }

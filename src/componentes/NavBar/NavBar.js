@@ -1,27 +1,22 @@
 import './styles.css'
 import '../CartWidget/CartWidget'
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
     return (
-        <header className="sticky-top header" style={{backgroundColor:'pink', height:'85px'}}> 
+        <header className="sticky-top header" style={{height:'85px'}}> 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <div className="ulcontenedor" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-            <li className="nav-item">
-              <p className="nav-link header__navItem" aria-current="page" href="../index.html">Inicio</p>
-            </li>
-            <li className="nav-item">
-              <p className="nav-link header__active header__navItem" href="./productos">Productos</p>
-            </li>
-            <li className="nav-item">
-              <p className="nav-link header__navItem" href="./comoComprar.html">Cómo comprar</p>
-            </li>
-            <li className="nav-item">
-              <p className="nav-link header__navItem" href="./contacto.html">Contacto</p>
-            </li>
+            <Link className="nav-item nav-link header__navItem" to={'/'}>Inicio</Link>
+            <Link className="nav-item nav-link header__navItem" to="/productos/cumpleaños">Cumpleaños</Link>
+            <Link className="nav-item nav-link header__navItem" to="/productos/bautismo">Bautismos</Link>
+            <Link className="nav-item nav-link header__navItem" to="/productos/comunión">Comuniones</Link>
+            <Link className="nav-item nav-link header__navItem" to={'./contacto.html'}>Contacto</Link>
+            
           </ul>
 
         </div>

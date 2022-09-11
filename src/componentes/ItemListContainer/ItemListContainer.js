@@ -2,8 +2,10 @@ import './styles.css'
 import data from '../Data/MockData';
 import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({titulo}) => {
+  const {categoryId} = useParams();
   const [items, setItems] = useState([]);
 
   const getData = new Promise ((resolve, rejet) => {
@@ -13,9 +15,14 @@ const ItemListContainer = ({titulo}) => {
   })
       useEffect(() => {
         getData.then((result) => {
-          setItems(result);
+          if(categoryId){
+            const newProductos = result.filter(items=>items.category === categoryId)
+            setItems(newProductos);
+          } else {
+            setItems(result)
+          }
         })
-      },);
+      },)
 
 
     return (
