@@ -1,6 +1,7 @@
-
+import './styles.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import data from '../Data/MockData';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 
@@ -10,7 +11,7 @@ const ItemDetailContainer = () => {
   
     const getItem = (id) => {
       return new Promise((resolve, rejet) => {
-        const productoDetalle = items.find(items=>items.id === parseInt(id));
+        const productoDetalle = data.find(items=>items.id === parseInt(id));
         resolve(productoDetalle)
         });
     }
@@ -25,7 +26,7 @@ const ItemDetailContainer = () => {
   
       return (
   <div className="item-detail-container">
-     <div className="row">
+     <div className="contenedor-detalle">
          <p style={{width:"400px", color: "white"}}>Detalle de Producto</p>
             <ItemDetail items={items}/>
            </div>

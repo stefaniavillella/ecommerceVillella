@@ -1,27 +1,30 @@
 import { useState } from "react";
 import './styles.css'
-import CicloVida from "../CicloVida/CicloVida";
 
-const Contador = () => {
-    const [ contador, setContador ] = useState(0)
-    const suma = () => {
-        
-        setContador( contador + 1)
-    }
-    const resta = () => {
-        setContador( contador - 1)
+const Contador = ({stock, initial, onAdd})=>{
+    const [count, setCount] = useState(initial);
+
+    const decrementar = ()=>{
+        if(count>1){
+            setCount(count-1)
+        }
     }
 
+    const incrementar = ()=>{
+        if(count<stock){
+            setCount(count+1)
+        }
+    }
 
-    return (
-        <div className="contador">
-        <h1>Cantidad de productos</h1>
-        <div className="botones">
-        <button className="botonContador" onClick={suma}>Agregar</button>
-        <h2>{contador < 6 ? <CicloVida numero={contador}/> : null}</h2>
-        <button className="botonContador" onClick={resta}>Quitar</button>
-        </div>
-        <button className="botonContador">Agregar al carrito</button>
+    return(
+        <div className='estilosContador'>
+            <p>Stock disponible: {stock}</p>
+            <div className='contenedorControles'>
+                <button disabled={stock===0} onClick={decrementar} className='botonControl'>-</button>
+                <p>{count}</p>
+                <button disabled={stock===0} onClick={incrementar} className='botonControl'>+</button>
+            </div>
+            <button disabled={stock === 0} className='botonAgregar'>Agregar al carrito</button>
         </div>
     )
 }

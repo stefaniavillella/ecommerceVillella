@@ -1,45 +1,47 @@
-.contador{
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.estilosContador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  background: #ae47d7;
+  color: rgb(54, 30, 52);
+  margin: 10px auto;
+  padding: 10px;
 }
 
-h1{
-    display: flex;
-    flex-direction: row;
-
+.contenedorControles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background: white;
+  width: 90%;
+  height: 30px;
 }
 
-.botones{
-    height: 187px;
-    width: 285px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: space-between;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(253, 218, 218);
+.botonControl {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: rgb(51, 7, 59);
+  border-radius: 50%;
+  background: #bd97c0;
+}
+.botonControl:disabled{
+  background: grey;
 }
 
-.botonContador {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(-45deg, #f57272, #f4a074, #2973b4, #104d82);
-    background-size: 800% 400%;
-    padding: 8px;
-    display: inline-block;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: white;
-    transition: all .5s ease-in-out;
-    animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both; }
-  .botonContador:hover {
-    animation: gradient 3s infinite;
-    transform: scale(1.05); }
-  .botonContador:active {
-    animation: gradient 3s infinite;
-    transform: scale(0.8); }
+.botonAgregar {
+  padding: 10px;
+  border-radius: 5px;
+  background: #f56cb7;
+  color: white;
+  width: 95%;
+  margin: 10px 0;
+}
+.botonAgregar:disabled{
+  background: grey;
+}
