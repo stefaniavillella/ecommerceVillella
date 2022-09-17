@@ -24,7 +24,7 @@ const Contador = ({stock, initial, onAdd})=>{
                 <p>{count}</p>
                 <button disabled={stock===0} onClick={incrementar} className='botonControl'>+</button>
             </div>
-            <button disabled={stock === 0} className='botonAgregar'>Agregar al carrito</button>
+            <button disabled={stock === 0} className='botonAgregar' onClick={()=>onAdd(count)}>Agregar al carrito</button>
         </div>
     )
 }
