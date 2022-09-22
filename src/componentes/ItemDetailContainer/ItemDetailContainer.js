@@ -7,7 +7,7 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
     const {productId} = useParams();
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState({});
   
     const getItem = (id) => {
       return new Promise((resolve, rejet) => {
@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
             setItems(producto)
           }
           getProducto();
-        },)
+        },[productId])
   
   
       return (

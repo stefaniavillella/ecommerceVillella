@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 
+
 const ItemListContainer = ({titulo}) => {
   const {categoryId} = useParams();
   const [items, setItems] = useState([]);
@@ -22,16 +23,17 @@ const ItemListContainer = ({titulo}) => {
             setItems(result)
           }
         })
-      },)
+      },[categoryId])
 
 
     return (
+       
 <div className="container-fluid col-md-4 categoria">
    <div className="row">
        <div className="col-md-8">
           <li className="list-group-item disabled categorias">{titulo}</li>
         <div className="list-group productoss" id="list-tab" role="tablist">
-          <ItemList items={items}/>
+        <ItemList items={items}/>
         </div>
       </div>
    </div>
