@@ -1,28 +1,44 @@
-import './styles.css'
-import data from '../Data/MockData';
+import './styles.css';
 import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import {db} from "../../utils/firebase";
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
 const ItemListContainer = ({titulo}) => {
   const {categoryId} = useParams();
   const [items, setItems] = useState([]);
 
-  const getData = new Promise ((resolve, rejet) => {
-    setTimeout(() => {
-      resolve(data)
-    }, 2000);
-  })
+  
       useEffect(() => {
-        getData.then((result) => {
-          if(categoryId){
-            const newProductos = result.filter(items=>items.category === categoryId)
-            setItems(newProductos);
-          } else {
-            setItems(result)
-          }
+        //referencia
+       if(!categoryId){
+        const queryRef = collection(db, "items");
+        getDocs(queryRef).then(response=>{
+          const documentos = response.docs.map(doc=>{
+            const newItem = {
+              id: doc.id,
+                  ...doc.data(),
+            }
+            return newItem
+          });
+          setItems(documentos);
         })
+       } else {
+        const queryRef = query(collection(db, "items"), where("category", "==", categoryId));
+        getDocs(queryRef).then(response=>{
+          const documentos = response.docs.map(doc=>{
+            const newItem = {
+              id: doc.id,
+                  ...doc.data(),
+            }
+            return newItem
+          });
+          setItems(documentos);
+       })
+      }
+
       },[categoryId])
 
 
