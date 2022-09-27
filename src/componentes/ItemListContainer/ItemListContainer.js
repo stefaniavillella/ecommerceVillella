@@ -12,34 +12,34 @@ const ItemListContainer = ({titulo}) => {
 
   
       useEffect(() => {
-        //referencia
-       if(!categoryId){
-        const queryRef = collection(db, "items");
-        getDocs(queryRef).then(response=>{
-          const documentos = response.docs.map(doc=>{
-            const newItem = {
-              id: doc.id,
-                  ...doc.data(),
-            }
-            return newItem
-          });
-          setItems(documentos);
-        })
-       } else {
-        const queryRef = query(collection(db, "items"), where("category", "==", categoryId));
-        getDocs(queryRef).then(response=>{
-          const documentos = response.docs.map(doc=>{
-            const newItem = {
-              id: doc.id,
-                  ...doc.data(),
-            }
-            return newItem
-          });
-          setItems(documentos);
-       })
-      }
-
-      },[categoryId])
+        //referencia a base de datos
+        if(!categoryId){
+          const queryRef = collection(db, "items");
+          getDocs(queryRef).then(response=>{
+            const documentos = response.docs.map(doc=>{
+              const newItem = {
+                id: doc.id,
+                    ...doc.data(),
+              }
+              return newItem
+            });
+            setItems(documentos);
+          })
+         } else {
+          const queryRef = query(collection(db, "items"), where("category", "==", categoryId));
+          getDocs(queryRef).then(response=>{
+            const documentos = response.docs.map(doc=>{
+              const newItem = {
+                id: doc.id,
+                    ...doc.data(),
+              }
+              return newItem
+            });
+            setItems(documentos);
+         })
+        }
+  
+        },[categoryId])
 
 
     return (
