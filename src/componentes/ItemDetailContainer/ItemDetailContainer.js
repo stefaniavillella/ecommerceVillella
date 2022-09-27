@@ -1,24 +1,25 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import data from '../Data/MockData';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { db } from '../../utils/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 
 const ItemDetailContainer = () => {
     const {productId} = useParams();
     const [items, setItems] = useState({});
   
-    const getItem = (id) => {
-      return new Promise((resolve, rejet) => {
-        const productoDetalle = data.find(items=>items.id === parseInt(id));
-        resolve(productoDetalle)
-        });
-    }
+    
         useEffect(() => {
           const getProducto = async()=>{
-            const producto = await getItem(productId);
-            setItems(producto)
+            const queryRef = doc(db, "items", productId);
+            const response = await getDoc(queryRef);
+            const newItem = {
+              id: response.id,
+              ...response.data(),
+            }
+            setItems(newItem);
           }
           getProducto();
         },[productId])
