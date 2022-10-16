@@ -19,7 +19,6 @@ const Contador = ({stock, initial, onAdd})=>{
 
     return(
         <div className='estilosContador'>
-            <p>Stock disponible: {stock}</p>
             <div className='contenedorControles'>
                 <button disabled={stock===0} onClick={decrementar} className='botonControl'>-</button>
                 <p>{count}</p>
@@ -27,6 +26,7 @@ const Contador = ({stock, initial, onAdd})=>{
             </div>
             <button disabled={stock === 0} className='botonAgregar' onClick={()=>onAdd(count)}>Agregar al carrito</button>
         </div>
+        
     )
 }
 

@@ -28,7 +28,6 @@ const ItemDetailContainer = () => {
       return (
   <div className="item-detail-container">
      <div className="contenedor-detalle">
-         <p style={{width:"400px", color: "white"}}>Detalle de Producto</p>
             <ItemDetail items={items}/>
            </div>
   </div>

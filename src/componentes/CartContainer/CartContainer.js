@@ -3,6 +3,7 @@ import {CartContext} from "../../context/CartContext"
 import { Link } from "react-router-dom";
 import { db } from "../../utils/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import './styles.css'
 
 
 export const CartContainer = () => {
@@ -36,39 +37,41 @@ export const CartContainer = () => {
 
 
     return (
-        <>
+        <div className="productoCarrito">
             {
         productCartList.length > 0 ?
-        <>
+        <div className="contenedor">
             {productCartList.map(items=>(
-                <div key={items.id}>
-                <img className="imagenes" src={items.image} alt={items.name} />
+                <div key={items.id} className="cardProductoCarrito">
+                <img className="imagenesCart" src={items.image} alt={items.name} />
                 <p>{items.name} - {items.quantity} unidades</p>
-                <p>Precio total: {items.totalProductos}</p>
-                <button onClick={()=>removeItem(items.id)}>Eliminar</button><br></br>
+                <p>Precio total: ${items.totalProductos}</p>
+                <button className="botones" onClick={()=>removeItem(items.id)}>Eliminar</button><br></br>
                 </div>
             ))}
-            <button onClick={()=>clearItems()}>Vaciar Carrito</button>
-            <p> Precio final de compra: {getTotal()} </p><br></br>
-            <form onSubmit={sendOrder}>
-                <label>Nombre:</label> <input type="text"></input>
-                <label>Teléfono:</label> <input type="number"></input>
-                <label>E-mail:</label> <input type="email"></input><br></br>
-                <button type="submit">Enviar orden de compra</button>
+            <button className="botones" onClick={()=>clearItems()}>Vaciar Carrito</button>
+            <div className="precioFinal"><p> Precio final de compra: ${getTotal()} </p></div>
+            <form className="form" onSubmit={sendOrder}>
+                <label className="labelForm">Nombre:</label> <input className="inputs" type="text"></input>
+                <label className="labelForm">Teléfono:</label> <input className="inputs" type="number"></input>
+                <label className="labelForm">E-mail:</label> <input className="inputs" type="email"></input><br></br>
+                <button className="botones" type="submit">Enviar orden de compra</button>
             </form>
-        </>
+        </div>
         :
-        <>
+        <div className="ups">
             <p>¡UPS! El carrito está vacio. Agregá algún producto</p>
-                <Link to="/">
+            <div>
+                <Link to="/" className="botones">
                 Ir al listado de productos
                 </Link>
-        </>
+            </div>
+        </div>
 }
     
         <div>
         {idOrder && <p>Compra realizada con éxito! Tu código es: {idOrder} </p>}
         </div>
-</>
+</div>
 )
 }

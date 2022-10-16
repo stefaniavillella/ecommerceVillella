@@ -1,0 +1,113 @@
+.productoCarrito {
+    background-color: #e0b5d9;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.cardProductoCarrito{
+    background-color: #ffffff;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin: 10px;
+}
+
+.imagenesCart{
+    width: 90px;
+}
+
+
+.botones {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(-45deg, #f57272, #f4a074, #2973b4, #104d82);
+    background-size: 800% 400%;
+    padding: 8px;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    transition: all .5s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both; }
+  .botones:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05); }
+  .botones:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8); }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+.precioFinal{
+    background-color: #f57272;
+    color: #ffffff;
+    width: auto;
+    height: 37px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.ups{
+    width: auto;
+}
+
+.contenedor{
+    width: 825px;
+}
+
+.form{
+    margin: 10px;
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs{
+    outline: none;
+    display: block;
+    background-color: #f7eef2;
+    width: 453px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 9px 2px;
+    margin-bottom: 15px;
+        
+}
+
+.btnFormulario{
+    margin: 10px;
+}
+
+.labelForm{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}

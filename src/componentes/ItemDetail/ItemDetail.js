@@ -17,7 +17,7 @@ const ItemDetail = ({items}) => {
                 <img src={items.image} alt={items.name}/>
                 <h4>{items.name}</h4>
                 <p>{items.description}</p>
-                <h5>{items.price}</h5>
+                <h5>Precio: ${items.price}</h5>
             </div>
             <div>
             <ItemCount stock={10} initial={contador} onAdd={onAdd}/>
